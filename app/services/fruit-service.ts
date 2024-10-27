@@ -1,3 +1,5 @@
+"use server";
+
 import { ApiResponse, parseApiResponse } from "../domain/api";
 import { FruitDTO } from "../domain/fruit.dto";
 
@@ -11,7 +13,6 @@ const getFruitList = async (): Promise<ApiResponse<Array<FruitDTO>>> => {
     const error = `Unable to execute getFruitList: ${e}`;
     console.error(e);
     return {
-      success: false,
       error
     };
   }

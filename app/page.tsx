@@ -1,4 +1,4 @@
-import { FruitList } from "./feature/fuit-list/fruit-list";
+import { FruitList } from "./feature/fruit-list";
 import { Jar } from "./feature/jar/jar";
 
 export default function Home() {
