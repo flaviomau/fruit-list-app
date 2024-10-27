@@ -4,7 +4,7 @@ export function Jar() {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Jar</CardTitle>
+        <CardTitle className="text-center text-lg">Jar</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-4" />
     </Card>

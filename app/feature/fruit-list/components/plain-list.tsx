@@ -1,13 +1,12 @@
 import { FruitDTO } from "@/app/domain/fruit.dto";
+import { DataFormat } from "./data-format";
 
-export function PlainList({ list }: { list: Array<FruitDTO> }) {
-  return (
-    <ul>
-      {list.map(f =>
-        <li>
-          {f.name}
-        </li>
-      )}
-    </ul>
-  );
+export function PlainList({
+  list,
+  format
+}: {
+  list: Array<FruitDTO>;
+  format: "table" | "list";
+}) {
+  return <DataFormat data={list} format={format} />;
 }

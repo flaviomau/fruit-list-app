@@ -1,5 +1,5 @@
 import { FruitList } from "./feature/fruit-list";
-import { Jar } from "./feature/jar/jar";
+import { Jar } from "./feature/jar";
 
 export default function Home() {
   return (

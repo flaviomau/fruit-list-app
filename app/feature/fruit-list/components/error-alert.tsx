@@ -3,7 +3,7 @@ import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 export function ErrorAlert() {
   return (
-    <Alert variant="destructive">
+    <Alert variant="destructive" className="my-4">
       <ExclamationTriangleIcon className="h-4 w-4" />
       <AlertTitle>Error to load the fruit list</AlertTitle>
       <AlertDescription>Try again later.</AlertDescription>

@@ -30,8 +30,11 @@ export function FruitList() {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Fruit List</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-center text-lg">Fruit List</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-row gap-2 items-center">
+          <span>Group By</span>
           <Select
             value={group}
             onValueChange={value => setGroup(value as Group)}
@@ -47,9 +50,7 @@ export function FruitList() {
               )}
             </SelectContent>
           </Select>
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
+        </div>
         {error && <ErrorAlert />}
         {isEmpty && <EmptyAlert />}
         {!isEmpty && <List list={fruitList} group={group} />}
