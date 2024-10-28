@@ -1,9 +1,6 @@
-import { FruitDTO } from "@/app/domain/fruit.dto";
-import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableFooter,
   TableHead,
@@ -15,8 +12,6 @@ import { ContainerContext } from "../../container";
 
 export function JarTable() {
   const { items, totalCalories } = useContext(ContainerContext);
-
-  JSON.stringify(items);
 
   return (
     <Table>

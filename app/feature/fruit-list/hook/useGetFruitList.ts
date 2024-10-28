@@ -1,6 +1,6 @@
 import { FruitDTO } from "@/app/domain/fruit.dto";
 import { getFruitList } from "@/app/services/fruit-service";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 
 export function useGetFruitList() {
   const [isPending, setIsPending] = useState(true);

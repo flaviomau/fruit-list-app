@@ -1,13 +1,6 @@
 "use client";
 
-import { getFruitList } from "@/app/services/fruit-service";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ErrorAlert } from "./components/error-alert";
 import { EmptyAlert } from "./components/empty-alert";
 import { useState } from "react";
@@ -16,8 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
   SelectContent,
-  SelectItem,
-  SelectGroup
+  SelectItem
 } from "@/components/ui/select";
 import { useGetFruitList } from "./hook/useGetFruitList";
 import { Group } from "@/app/domain/group";

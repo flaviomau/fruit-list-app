@@ -1,4 +1,4 @@
-interface JarItem {
+export interface JarItem {
   name: string;
   calories: number;
   quantity: number;
