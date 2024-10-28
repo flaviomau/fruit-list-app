@@ -22,7 +22,7 @@ import {
 import { useGetFruitList } from "./hook/useGetFruitList";
 import { Group } from "@/app/domain/group";
 import { List } from "./components/list";
-import { GroupList } from "./components/group-list";
+import { FruitDTO } from "@/app/domain/fruit.dto";
 
 export function FruitList() {
   const { error, fruitList, isEmpty } = useGetFruitList();

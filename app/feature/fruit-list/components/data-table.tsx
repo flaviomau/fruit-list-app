@@ -10,8 +10,16 @@ import {
   TableRow
 } from "@/components/ui/table";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
+import { useContext } from "react";
+import { ContainerContext } from "../../container";
 
-export function DataTable({ data }: { data: FruitDTO[] }) {
+interface DataTableProps {
+  data: FruitDTO[];
+}
+
+export function DataTable({ data }: DataTableProps) {
+  const { addFruit } = useContext(ContainerContext);
+
   return (
     <Table>
       <TableHeader>
@@ -43,7 +51,11 @@ export function DataTable({ data }: { data: FruitDTO[] }) {
               {fruit.nutritions.calories}
             </TableCell>
             <TableCell>
-              <Button type="button" variant="ghost">
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => addFruit(fruit)}
+              >
                 <PlusCircledIcon />
               </Button>
             </TableCell>

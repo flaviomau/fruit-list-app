@@ -8,7 +8,12 @@ import { TableIcon, ListBulletIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-export function List({ list, group }: { list: Array<FruitDTO>; group: Group }) {
+interface ListProps {
+  list: Array<FruitDTO>;
+  group: Group;
+}
+
+export function List({ list, group }: ListProps) {
   const [format, setFormat] = useState<"table" | "list">("list");
   const mapGroup: Partial<Record<Group, "family" | "genus" | "order">> = {
     Family: "family",

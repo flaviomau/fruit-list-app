@@ -9,15 +9,13 @@ import { Button } from "@/components/ui/button";
 import { PlusIcon } from "@radix-ui/react-icons";
 import { DataFormat } from "./data-format";
 
-export function GroupList({
-  list,
-  group,
-  format
-}: {
+interface GroupListProps {
   list: Array<FruitDTO>;
   group: "family" | "order" | "genus";
   format: "table" | "list";
-}) {
+}
+
+export function GroupList({ list, group, format }: GroupListProps) {
   const fruitsByGroup: Record<string, Array<FruitDTO>> = {};
   for (const fruit of list) {
     if (!fruitsByGroup[fruit[group]]) {
