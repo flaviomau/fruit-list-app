@@ -5,9 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { PlusIcon } from "@radix-ui/react-icons";
 import { DataFormat } from "./data-format";
+import { AddGroupButton } from "./add-group-button";
 
 interface GroupListProps {
   list: Array<FruitDTO>;
@@ -37,9 +36,7 @@ export function GroupList({ list, group, format }: GroupListProps) {
               <DataFormat data={fruitsByGroup[group]} format={format} />
             </AccordionContent>
           </AccordionItem>
-          <Button type="button" variant="outline" size="icon">
-            <PlusIcon className="h-4 w-4" />
-          </Button>
+          <AddGroupButton fruitsByGroup={fruitsByGroup[group]} />
         </div>
       )}
     </Accordion>

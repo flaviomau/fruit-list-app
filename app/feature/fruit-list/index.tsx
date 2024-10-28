@@ -22,10 +22,10 @@ import {
 import { useGetFruitList } from "./hook/useGetFruitList";
 import { Group } from "@/app/domain/group";
 import { List } from "./components/list";
-import { FruitDTO } from "@/app/domain/fruit.dto";
+import { PendingAlert } from "./components/pending-alert";
 
 export function FruitList() {
-  const { error, fruitList, isEmpty } = useGetFruitList();
+  const { error, fruitList, isEmpty, isPending } = useGetFruitList();
   const [group, setGroup] = useState<Group>(Group.None);
   return (
     <Card className="w-full">
@@ -51,8 +51,9 @@ export function FruitList() {
             </SelectContent>
           </Select>
         </div>
+        {isPending && <PendingAlert />}
         {error && <ErrorAlert />}
-        {isEmpty && <EmptyAlert />}
+        {isEmpty && !isPending && <EmptyAlert />}
         {!isEmpty && <List list={fruitList} group={group} />}
       </CardContent>
     </Card>

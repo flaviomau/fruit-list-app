@@ -1,15 +1,16 @@
 import { FruitDTO } from "@/app/domain/fruit.dto";
-import { Group } from "@/app/domain/group";
 import { getFruitList } from "@/app/services/fruit-service";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 export function useGetFruitList() {
+  const [isPending, setIsPending] = useState(true);
   const [fruitList, setFruitList] = useState<Array<FruitDTO>>([])
   const [error, setError] = useState('')
 
 
   useEffect(()=>{
     const updateFruitList = async () => {
+      setIsPending(true)
       const fruiListResponse = await getFruitList()
       if(fruiListResponse?.data) {
         setFruitList(fruiListResponse.data)
@@ -18,6 +19,7 @@ export function useGetFruitList() {
       if(fruiListResponse?.error) {
         setError(fruiListResponse?.error)
       }
+      setIsPending(false)
     }
     updateFruitList()
   }, [])
@@ -25,6 +27,7 @@ export function useGetFruitList() {
   return {
     fruitList,
     isEmpty: fruitList.length === 0,
-    error
+    error,
+    isPending
   };
 }

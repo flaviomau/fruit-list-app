@@ -16,6 +16,8 @@ import { ContainerContext } from "../../container";
 export function JarTable() {
   const { items, totalCalories } = useContext(ContainerContext);
 
+  JSON.stringify(items);
+
   return (
     <Table>
       <TableHeader>

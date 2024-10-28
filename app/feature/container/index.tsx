@@ -7,6 +7,7 @@ import { Jar } from "../jar";
 
 interface ContainerContextSchema {
   addFruit: (fruit: FruitDTO) => void;
+  addFruits: (fruits: FruitDTO[]) => void;
   items: JarItem[];
   totalCalories: number;
 }
@@ -14,6 +15,7 @@ interface ContainerContextSchema {
 export const ContainerContext = createContext<ContainerContextSchema>({
   items: [],
   addFruit: () => {},
+  addFruits: () => {},
   totalCalories: 0
 });
 
@@ -33,8 +35,26 @@ export function Container() {
     setTotalCalories(prev => prev + fruit.nutritions.calories)
   };
 
+  const addFruits = (fruits: FruitDTO[]) => {
+    const newItems = [...items]
+
+    for(const fruit of fruits) {
+      const existentFruitIdx = items.findIndex(item => item.name === fruit.name);
+
+      if(existentFruitIdx > -1) {
+        newItems[existentFruitIdx].quantity += 1
+      } else {
+        newItems.push({ quantity: 1, name: fruit.name, calories: fruit.nutritions.calories })
+      }
+
+      setTotalCalories(prev => prev + fruit.nutritions.calories)
+    }
+    
+    setItems(newItems);
+  };
+
   return (
-    <ContainerContext.Provider value={{ addFruit, items, totalCalories }}>
+    <ContainerContext.Provider value={{ addFruit, addFruits, items, totalCalories }}>
       <div className="w-1/2 m-4">
         <FruitList />
       </div>
