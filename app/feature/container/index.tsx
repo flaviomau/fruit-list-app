@@ -4,6 +4,7 @@ import { FruitDTO } from "@/app/domain/fruit.dto";
 import { createContext, useState } from "react";
 import { FruitList } from "../fruit-list";
 import { Jar } from "../jar";
+import { JarItem } from "@/app/domain/jar";
 
 interface ContainerContextSchema {
   addFruit: (fruit: FruitDTO) => void;
